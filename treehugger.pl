@@ -213,10 +213,12 @@ print "\nfound $hits hit sequences, they are in the $query.fasta file\n\n";
 
 
 
-system "rm $query.hitlist blastdbcmd.log";
-system "rm $query.uniq $query.perf  $query.txt";
+system "rm $query.uniq $query.perf";
+system "rm blastdbcmd.perf makeblastdb.perf";
 system "rm $query*.bionj $query*.ckp.gz $query*.iqtree $query*.mldist $query*.model.gz $query*.splits.nex $query*.treefile";
 system "mkdir $query\_Treehugger_results";
+system "mv $query.hitlist $query.txt ./$query\_Treehugger_results";
+system "mv blastdbcmd.log makeblastdb.log ./$query\_Treehugger_results";
 system "mv $query*.contree ./$query\_Treehugger_results";
 system "mv $query*.trimmed ./$query\_Treehugger_results";
 system "mv $query*.aln ./$query\_Treehugger_results";
